@@ -17,6 +17,12 @@ module "eks" {
     create_security_group = false
   }
 
+  # Work-around to fix the duplicate security group issue
+  # see https://github.com/terraform-aws-modules/terraform-aws-eks/issues/1810
+  node_security_group_tags = {
+    "kubernetes.io/cluster/${local.cluster_name}" = null
+  }
+
   eks_managed_node_groups = {
     one = {
       name = "node-group-1"
