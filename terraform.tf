@@ -27,5 +27,12 @@ terraform {
   }
 
   required_version = "~> 1.3"
+
+  backend "s3" {
+    bucket         = "terraform-wy"
+    key            = "learn-terraform-kubernetes"
+    region         = "us-west-2"
+    dynamodb_table = "dynamodb-state-locking"
+  }
 }
 
