@@ -7,6 +7,6 @@ resource "kubernetes_config_map" "aws-auth" {
 
 
   data = {
-    mapRoles = "${file("${path.module}/aws-auth.yml")}"
+    mapUsers = "${file("${path.module}/aws-auth.yml")}"
   }
 }
