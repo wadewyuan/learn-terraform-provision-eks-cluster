@@ -3,7 +3,10 @@
 name: Terraform Cleanup
 
 # Controls when the workflow will run
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  repository_dispatch:
+    types: [eks-metrics-server-destroyed]
 
 permissions:
   id-token: write # required to use OIDC authentication
