@@ -100,3 +100,5 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
         event-type: eks-cluster-launched
+        repository: wadewyuan/terraform-eks-metrics-server
+        client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
